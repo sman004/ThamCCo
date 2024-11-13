@@ -3,7 +3,7 @@ name: build
 on: [push]
 
 env:
-  DOTNET_VERSION: 8.0.10.x
+  DOTNET_VERSION: 8.0
   BUILD_CONFIGURATION: Release
   PROJECT_PATH: ./ProductsApi    # set this to the directory path of your project
   PUBLISH_PATH: ./myapp
