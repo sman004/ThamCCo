@@ -69,6 +69,6 @@ app.MapGet("/api/products/{id}", async (int id, IProductRepository productRepo) 
 });
 
 // Test endpoint
-app.MapGet("/", () => "Hello, World!");
+app.MapGet("/", () => "Hiya!");
 
 app.Run();
