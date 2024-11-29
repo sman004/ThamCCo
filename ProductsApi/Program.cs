@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using ProductsApi;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("ProductsApi.Test")] // Expose the Program class to the test project
 
 var builder = WebApplication.CreateBuilder(args);
 

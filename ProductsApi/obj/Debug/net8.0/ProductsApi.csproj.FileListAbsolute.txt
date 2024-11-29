@@ -152,6 +152,7 @@ C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\ProductsApi.Asse
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\ProductsApi.csproj.CoreCompileInputs.cache
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\ProductsApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\ProductsApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\ProductsApi.sourcelink.json
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\staticwebassets\msbuild.ProductsApi.Microsoft.AspNetCore.StaticWebAssets.props
