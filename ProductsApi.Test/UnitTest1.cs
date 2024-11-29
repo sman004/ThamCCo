@@ -21,7 +21,7 @@ namespace ProductsApiTest
                 {
                     builder.ConfigureServices(services =>
                     {
-                        // Mock the IProductRepository and replace it in the DI container
+                        // Mock the IProductRepository
                         var mockProductRepository = new Mock<IProductRepository>();
                         var testProducts = new List<Product>
                         {
@@ -30,7 +30,7 @@ namespace ProductsApiTest
                         };
                         mockProductRepository.Setup(repo => repo.GetAllProductsAsync()).Returns(Task.FromResult(testProducts));
 
-                        // Register the mock repository to replace the actual one
+                        // Register the mock repository
                         services.AddSingleton(mockProductRepository.Object);
                     });
                 });
@@ -39,6 +39,7 @@ namespace ProductsApiTest
         }
 
         [TestMethod]
+        //get list of all products
         public async Task GetProducts_ReturnsOkResult_WithListOfProducts()
         {
             // Act: Send a GET request to /products
@@ -50,5 +51,46 @@ namespace ProductsApiTest
             Assert.IsNotNull(returnedProducts);
             Assert.AreEqual(2, returnedProducts.Count);
         }
+
+
+[TestMethod]
+//retrieve a product by id
+public async Task GetProductById_ReturnsOkResult_WithProduct()
+{
+    // Arrange
+    var mockProductRepo = new Mock<IProductRepository>();
+    var testProduct = new Product
+    {
+        ProductId = 1,
+        ProductName = "Test Product",
+        Description = "Test Description",
+        Price = 9.99m
+    };
+
+    mockProductRepo.Setup(repo => repo.GetProductByIdAsync(1)).ReturnsAsync(testProduct);
+
+    var factory = new WebApplicationFactory<Program>()
+        .WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                services.AddSingleton<IProductRepository>(mockProductRepo.Object);
+            });
+        });
+
+    var client = factory.CreateClient();
+
+    // Act
+    var response = await client.GetAsync("/api/products/1");
+
+    // Assert
+    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+    var returnedProduct = await response.Content.ReadFromJsonAsync<Product>();
+    Assert.IsNotNull(returnedProduct);
+    Assert.AreEqual(testProduct.ProductId, returnedProduct.ProductId);
+    Assert.AreEqual(testProduct.ProductName, returnedProduct.ProductName);
+}
+
+        
     }
 }
