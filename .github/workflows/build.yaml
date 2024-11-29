@@ -73,7 +73,3 @@ jobs:
           app-name: ${{ env.products-api }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret in GitHub with contents of Publish Profile
           package: ${{ env.PUBLISH_PATH }}
-
-
-
-          
