@@ -91,6 +91,80 @@ public async Task GetProductById_ReturnsOkResult_WithProduct()
     Assert.AreEqual(testProduct.ProductName, returnedProduct.ProductName);
 }
 
+
+ [TestMethod]
+
+ //test for products not found
+public async Task GetProductById_ReturnsNotFound_WhenProductDoesNotExist()
+{
+    // Arrange
+    var mockProductRepo = new Mock<IProductRepository>();
+    mockProductRepo.Setup(repo => repo.GetProductByIdAsync(It.IsAny<int>())).ReturnsAsync((Product)null);
+
+    var factory = new WebApplicationFactory<Program>()
+        .WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                services.AddSingleton<IProductRepository>(mockProductRepo.Object);
+            });
+        });
+
+    var client = factory.CreateClient();
+
+    // Act
+    var response = await client.GetAsync("/api/products/999");
+
+    // Assert
+    Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+}
+
+
+ [TestMethod]
+ //test invalid routes
+public async Task InvalidRoute_ReturnsNotFound()
+{
+    // Arrange
+    var factory = new WebApplicationFactory<Program>();
+    var client = factory.CreateClient();
+
+    // Act
+    var response = await client.GetAsync("/api/invalidroute");
+
+    // Assert
+    Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+}
+
+
+ [TestMethod]
+ //test for empty products
+public async Task GetAllProducts_ReturnsEmptyList_WhenNoProductsExist()
+{
+    // Arrange
+    var mockProductRepo = new Mock<IProductRepository>();
+    mockProductRepo.Setup(repo => repo.GetAllProductsAsync()).ReturnsAsync(new List<Product>());
+
+    var factory = new WebApplicationFactory<Program>()
+        .WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                services.AddSingleton<IProductRepository>(mockProductRepo.Object);
+            });
+        });
+
+    var client = factory.CreateClient();
+
+    // Act
+    var response = await client.GetAsync("/api/products");
+
+    // Assert
+    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+    var returnedProducts = await response.Content.ReadFromJsonAsync<List<Product>>();
+    Assert.IsNotNull(returnedProducts);
+    Assert.AreEqual(0, returnedProducts.Count);
+}
+
         
     }
 }
