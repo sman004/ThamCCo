@@ -553,3 +553,4 @@ C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi.Test\bin\Debug\net8.0\Microsoft.A
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi.Test\bin\Debug\net8.0\Microsoft.AspNetCore.TestHost.dll
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi.Test\bin\Debug\net8.0\Moq.dll
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi.Test\obj\Debug\net8.0\MvcTestingAppManifest.json
+C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi.Test\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

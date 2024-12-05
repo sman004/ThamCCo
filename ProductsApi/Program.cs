@@ -1,10 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using ProductsApi;
 using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 [assembly: InternalsVisibleTo("ProductsApi.Test")] // Expose the Program class to the test project
 
 var builder = WebApplication.CreateBuilder(args);
+
+//add  authO authentication 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["Auth:Authority"];
+        options.Audience =  builder.Configuration["Auth:Audience"];
+    });
+    builder.Services.AddAuthorization();
+
 
 // Configure database context
 builder.Services.AddDbContext<ProductsContext>(options =>
@@ -51,8 +63,9 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
 
+
 // API endpoints for product access
-app.MapGet("/api/products", async (IProductRepository productRepo) =>
+app.MapGet("/api/products",  [Authorize] async (IProductRepository productRepo) =>
 {
     try
     {
