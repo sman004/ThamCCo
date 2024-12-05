@@ -40,6 +40,7 @@ namespace ProductsApiTest
 
         [TestMethod]
         //get list of all products
+        
         public async Task GetProducts_ReturnsOkResult_WithListOfProducts()
         {
             // Act: Send a GET request to /products

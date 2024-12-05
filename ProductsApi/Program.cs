@@ -65,6 +65,7 @@ app.UseAuthorization();
 
 
 // API endpoints for product access
+
 app.MapGet("/api/products",  [Authorize] async (IProductRepository productRepo) =>
 {
     try
