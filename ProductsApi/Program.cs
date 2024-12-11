@@ -31,9 +31,18 @@ builder.Services.AddDbContext<ProductsContext>(options =>
         options.EnableSensitiveDataLogging();
     }
     else
+        // Azure SQL for production
     {
-        var cs = builder.Configuration.GetConnectionString("ProductsContext");
-        options.UseSqlServer(cs); // Azure SQL for production
+       var cs = builder.Configuration.GetConnectionString("ProductsContext");
+        options.UseSqlServer(cs, sqlServerOptionsAction: sqlOptions =>
+        {
+             //add retry pattern for resilience 
+            sqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(6),
+                errorNumbersToAdd: null);
+        }); 
+       
     }
 });
 
