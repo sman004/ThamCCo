@@ -55,7 +55,7 @@ jobs:
 
 
 
-  deploy-test:
+  deploy-webservice:
     runs-on: ubuntu-latest
     needs: build
 #   environment:
