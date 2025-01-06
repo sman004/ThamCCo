@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 [assembly: InternalsVisibleTo("ProductsApi.Test")] // Expose the Program class to the test project
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpClient<ProductsApi.Services.ThirdPartyProductService>();
 
 //add  authO authentication 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -71,6 +72,25 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
+
+
+//consuming products api from third party suppliers and adding the products to database
+app.MapPost("/sync-products", async (ProductsContext db, ProductsApi.Services.ThirdPartyProductService productService) =>
+{
+    string apiUrl = "http://undercutters.azurewebsites.net/api/product";
+    try
+    {
+        var products = await productService.GetProductsFromApiAsync(apiUrl);
+        db.Products.AddRange(products);
+        await db.SaveChangesAsync();
+
+        return Results.Ok("Products added successfully!");
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem($"Failed to sync products: {ex.Message}");
+    }
+});
 
 
 // API endpoints for product access

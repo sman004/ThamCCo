@@ -171,3 +171,4 @@ C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\obj\Debug\net8.0\ref\ProductsApi.
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\bin\Debug\net8.0\Polly.dll
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\bin\Debug\net8.0\Polly.Core.dll
 C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\bin\Debug\net8.0\Polly.Extensions.Http.dll
+C:\Users\ibrahim\Downloads\ThamCCo\ProductsApi\bin\Debug\net8.0\Newtonsoft.Json.dll
