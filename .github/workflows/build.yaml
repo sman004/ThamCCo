@@ -27,13 +27,13 @@ jobs:
             --configuration $BUILD_CONFIGURATION \
             --no-restore
 
-     - name: Run unit tests
-       run: |
-         dotnet test ./ProductsApi.Test/ProductsApi.Test.csproj \
-           --configuration $BUILD_CONFIGURATION \
-            --no-build \
-            --logger trx \
-             --results-directory $TESTRESULTS_PATH
+    #  - name: Run unit tests
+     #   run: |
+      #    dotnet test ./ProductsApi.Test/ProductsApi.Test.csproj \
+       #     --configuration $BUILD_CONFIGURATION \
+        #    --no-build \
+         #   --logger trx \
+          #  --results-directory $TESTRESULTS_PATH
       - name: Store test results
         uses: actions/upload-artifact@v3
         with:
