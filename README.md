@@ -1,9 +1,9 @@
 # Fictitious Thamco  Products API container
 
 ##  Table of contents
-- [Overview]
-- [Features]
-- [Getting started]
+- [Overview](#overview)
+- [Features](#features)
+- [Getting started](#Getting started)
 - [Installations]
 - [Api endpoints]
 - [Configurations]
