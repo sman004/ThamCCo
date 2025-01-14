@@ -29,8 +29,7 @@ GET /api/products/{id}: Get a single product by ID.
 POST /api/products: Create a new product (This is an http call to a third party)
 
 Configuration:
-You can configure the container by using an .env file or environment variables directly. Key variables include:
-DB_CONNECTION_STRING: The database connection string.
+You can configure the container by using an .env file or environment variables directly. Key variables include like databse connection string can be found in appsettings.json.
 Appsettings.json: Set for Production.
 Appsettings.Development.json: set for development environment
 PORT: Port number on which the application runs.
