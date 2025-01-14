@@ -13,7 +13,7 @@ Numerous interfaces for  other container
 
 Getting Started:
 Follow the steps below to set up and run the containerized Products API locally or in a production environment.
-Prerequisites
+Prerequisites:
 .NET Runtime (for local development, optional)
 
 Installation:
