@@ -24,12 +24,12 @@
 ## Installation
 #### Clone this repository, ensure the build.yaml file is configured correctly and update to the latest version if required. Ensure all Entity framework core libraries are installed and authentication and authorization libraries are downloaded.
 
-API Endpoints:
-Below is a summary of available endpoints.
-Products
-GET /api/products: Get all products.
-GET /api/products/{id}: Get a single product by ID.
-POST /api/products: Create a new product (This is an http call to a third party)
+## API Endpoints:
+#### Below is a summary of available endpoints.
+### Products
+#### GET /api/products: Get all products.
+#### GET /api/products/{id}: Get a single product by ID.
+### POST /api/products: Create a new product (This is an http call to a third party)
 
 Configuration:
 You can configure the container by using an .env file or environment variables directly. Key variables like database connection string can be found in appsettings.json.
