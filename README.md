@@ -4,7 +4,7 @@
 - [Overview](#overview)
 - [Features](#features)
 - [Getting started](#Getting started)
-- [Installations]
+- [Installations](#installations)
 - [Api endpoints]
 - [Configurations]
 - [Contributions]
