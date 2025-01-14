@@ -3,7 +3,7 @@
 ##  Table of contents
 - [Overview](#overview)
 - [Features](#features)
-- [Getting started](#Getting started)
+- [Gettingstarted](#Getting started)
 - [Installations](#installations)
 - [Api endpoints]
 - [Configurations]
