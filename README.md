@@ -3,12 +3,12 @@
 ##  Table of contents
 - [Overview](#overview)
 - [Features](#features)
-- [Gettingstarted](#Getting started)
+- [Start](#start)
 - [Installations](#installations)
-- [Api endpoints]
-- [Configurations]
-- [Contributions]
-- [license]
+- [Api endpoints](#Endpoints)
+- [Configurations](#Configurations)
+- [Contributions](#Contributions)
+- [license](#licence)
 
 Overview:
 This Products API is a microservice that provides endpoints for managing product data in my application. It enables operations such as reading and adding products fetched from third party products suppliers  to the products database. This containerized API is built using .NET and deployed to azure using github actions.  The yaml file for automatic CI/CD pipeline can be found at the root of the project. 
